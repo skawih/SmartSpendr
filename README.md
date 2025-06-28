@@ -40,15 +40,15 @@ SmartSpendr is a web-based expense tracker designed to help users monitor their 
     "reminders": 3
   },
   "spending": {
-    "lastMonth": "48,000",
-    "currentMonth": "8,000"
+    "lastMonth": "₱ 48,000",
+    "currentMonth": "₱ 8,000"
   },
   "subscriptions": [
     {
       "name": "Google Ads Services",
       "status": "Active",
       "renewalDate": "05 Jun 2025",
-      "amount": "P 1009"
+      "amount": "₱ 1099"
     }
   ]
 }
