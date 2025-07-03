@@ -28,11 +28,16 @@ body {
     padding: 20px;  
 }
 
- .logo img {
+.logo img {
     width: 100px;
     height: auto;
     }
-    
+
+.logo1 img {
+        width: 60px;
+        height: auto;
+        }    
+
 .login-card {
     background: white;
     padding: 40px;
