@@ -1,5 +1,8 @@
 # SmartSpendr - Expense Tracking Web Application
 
+## Website Preview Right Here
+↪ https://skawih.github.io/SmartSpendr/ ↩
+
 ## Overview
 SmartSpendr is a web-based expense tracker designed to help users monitor their monthly spending and manage active subscriptions. The application utilizes local storage to store user data, ensuring accessibility without requiring a backend server.
 
