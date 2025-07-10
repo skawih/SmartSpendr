@@ -1,193 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartSpendr - Expense Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartSpendr</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Login Page -->
-    <div id="login-page" class="page active">
-        <div class="login-container">
-            <div class="login-card">
-                <div class="logo">
-                    <img src="C:\Users\202411292\Documents\test\smartspendrlogo.png" alt="SmartSpendr Logo" />
-                </div>
+
+  <!-- Login and Signup Modals -->
+  <div id="login-page" class="page active">
+    <div class="login-container">
+      <div class="login-card">
+        <img src="smartspendrlogo.png" alt="SmartSpendr Logo" class="login-logo" onerror="this.style.display='none'">
+        <h1>Welcome Back</h1>
+        <p>Login to manage your finances.</p>
+        <form id="login-form">
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="password" id="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+        <button class="create-account-btn" onclick="showModal('signup-modal')">Create an Account</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="signup-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header"><h2>Create Your Account</h2><button class="close-btn" onclick="hideModal('signup-modal')">&times;</button></div>
+      <form id="signup-form">
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input type="password" id="signup-password" placeholder="Password" required />
+        <button type="submit">Register</button>
+      </form>
     
-                <h1>SmartSpendr</h1>
-                <p>Track your expenses smartly</p>
-                
-                <form id="login-form">
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" id="password" placeholder="Password" required>
-                    </div>
-                    <button type="submit">Sign In</button>
-                </form>
-                
-                <div class="demo-note">
-                    <small>Demo: Use any email and password</small>
-                </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Page -->
+  <div id="dashboard-page" class="page">
+    <header class="header">
+      <div class="header-content">
+        <div class="header-logo-container">
+            <img src="smartspendrlogo.png" alt="SmartSpendr Logo" class="header-logo" onerror="this.style.display='none'">
+            <h2>SmartSpendr</h2>
+        </div>
+        <div class="header-right">
+          <span id="user-name">Hi, User</span>
+          <button id="settings-btn" class="icon-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.48.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.333.183-.582.495-.645.87l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.645-.87l.213-1.28z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          </button>
+          <button id="logout-btn">Logout</button>
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+        <!-- Main content remains the same -->
+        <div class="overview-section">
+            <div class="overview-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m12 3V9" /></svg></div><div><h3>Current Month</h3><div class="amount" id="current-month">₱0</div></div></div>
+            <div class="overview-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183m-4.991-2.695v-2.695A8.25 8.25 0 005.68 9.348v2.695l3.181 3.183a8.25 8.25 0 0011.667 0l3.181-3.183" /></svg></div><div><h3>Active Subs</h3><div class="amount" id="active-subs">0</div></div></div>
+            <div class="overview-card"><div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" /></svg></div><div><h3>Notifications</h3><div class="amount" id="notifications">0</div></div></div>
+        </div>
+        <div class="action-section">
+            <button onclick="showModal('transaction-modal')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>Add Transaction</button>
+            <button onclick="showModal('subscription-modal')"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>Add Subscription</button>
+        </div>
+        <div class="content-grid">
+            <div class="content-card"><h2>Recent Transactions</h2><div class="list-container"><div id="transactions-list"><p class="empty-state">No transactions yet</p></div><button class="see-more-btn" id="see-more-transactions" style="display: none;">See More</button></div></div>
+            <div class="content-card"><h2>Active Subscriptions</h2><div class="list-container"><div id="subscriptions-list"><p class="empty-state">No subscriptions yet</p></div><button class="see-more-btn" id="see-more-subscriptions" style="display: none;">See More</button></div></div>
+        </div>
+        <div class="renewals-section"><h2>Upcoming Renewals</h2><div id="renewals-list"><p class="empty-state">No upcoming renewals</p></div></div>
+    </main>
+  </div>
+
+  <!-- Standard Modals -->
+  <div id="transaction-modal" class="modal">
+    <div class="modal-content"><div class="modal-header"><h2>New Transaction</h2><button class="close-btn" onclick="hideModal('transaction-modal')">&times;</button></div><form id="transaction-form"><div class="radio-group"><label><input type="radio" name="type" value="expense" checked><span>Expense</span></label><label><input type="radio" name="type" value="income"><span>Income</span></label></div><input type="text" id="transaction-desc" placeholder="Description" required /><input type="number" id="transaction-amount" placeholder="Amount" required /><select id="transaction-category"><option value="Food">Food</option><option value="Bills">Bills</option><option value="Transportation">Transportation</option><option value="Entertainment">Entertainment</option><option value="Other">Other</option></select><button type="submit">Add Transaction</button></form></div>
+  </div>
+  <div id="subscription-modal" class="modal">
+    <div class="modal-content"><div class="modal-header"><h2>New Subscription</h2><button class="close-btn" onclick="hideModal('subscription-modal')">&times;</button></div><form id="subscription-form"><input type="text" id="subscription-name" placeholder="Service Name" required /><input type="number" id="subscription-amount" placeholder="Amount" required /><input type="date" id="subscription-renewal" required /><select id="subscription-category"><option value="Streaming">Streaming</option><option value="Software">Software</option></select><button type="submit">Add Subscription</button></form></div>
+  </div>
+
+  <!-- Settings and Forgot Password Modals -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header"><h2>Settings</h2><button class="close-btn" onclick="hideModal('settings-modal')">&times;</button></div>
+        <div>
+            <div class="settings-item">
+                <p>Theme</p>
+                <button id="theme-toggle-btn">
+                    <span id="theme-icon"></span>
+                    <span id="theme-text"></span>
+                </button>
+            </div>
+            <div class="settings-item">
+                <p>Account</p>
+                <button id="forgot-password-btn">Forgot Password</button>
             </div>
         </div>
     </div>
-
-    <!-- Dashboard Page -->
-    <div id="dashboard-page" class="page">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo-section">
-                    <div class="logo1"> <img src="C:\Users\202411292\Documents\test\smartspendrlogo.png" alt="SmartSpendr Logo" /></div>
-                    <h1>SmartSpendr</h1>
-                </div>
-                <div class="user-section">
-                    <span id="user-name">Hi, User</span>
-                    <button id="logout-btn">Logout</button>
-                </div>
-            </div>
-        </header>
-
-        <main class="main-content">
-            <!-- Overview Cards -->
-            <div class="overview-section">
-                <div class="overview-card">
-                    <h3>Current Month</h3>
-                    <div class="amount" id="current-month">₱ 0</div>
-                </div>
-                <div class="overview-card">
-                    <h3>Last Month</h3>
-                    <div class="amount" id="last-month">₱ 0</div>
-                </div>
-                <div class="overview-card">
-                    <h3>Active Subscriptions</h3>
-                    <div class="amount" id="active-subs">3</div>
-                </div>
-                <div class="overview-card">
-                    <h3>Notifications</h3>
-                    <div class="amount" id="notifications">2</div>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="action-section">
-                <button class="btn primary" onclick="showModal('transaction-modal')">Add Transaction</button>
-                <button class="btn secondary" onclick="showModal('subscription-modal')">Add Subscription</button>
-            </div>
-
-            <!-- Content Sections -->
-            <div class="content-grid">
-                <!-- Recent Transactions -->
-                <div class="content-card">
-                    <h2>Recent Transactions</h2>
-                    <div id="transactions-list" class="list-container">
-                        <p class="empty-state">No transactions yet</p>
-                    </div>
-                </div>
-
-                <!-- Active Subscriptions -->
-                <div class="content-card">
-                    <h2>Active Subscriptions</h2>
-                    <div id="subscriptions-list" class="list-container">
-                        <p class="empty-state">No subscriptions yet</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Upcoming Renewals -->
-            <div class="renewals-section">
-                <h2>Upcoming Renewals</h2>
-                <div id="renewals-list" class="renewals-container">
-                    <p class="empty-state">No upcoming renewals</p>
-                </div>
-            </div>
-        </main>
+  </div>
+  <div id="forgot-password-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header"><h2>Reset Password</h2><button class="close-btn" onclick="hideModal('forgot-password-modal')">&times;</button></div>
+        <form id="forgot-password-form" style="padding: 1.5rem;">
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Enter your email to receive a password reset link.</p>
+            <input type="email" id="forgot-email" placeholder="Your Email" required />
+            <button type="submit">Send Reset Link</button>
+        </form>
     </div>
+  </div>
 
-    <!-- Add Transaction Modal -->
-    <div id="transaction-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Add Transaction</h2>
-                <button class="close-btn" onclick="hideModal('transaction-modal')">&times;</button>
-            </div>
-            <form id="transaction-form">
-                <div class="form-group">
-                    <label>Type</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="type" value="expense" checked> Expense</label>
-                        <label><input type="radio" name="type" value="income"> Income</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <input type="text" id="transaction-desc" placeholder="Enter description" required>
-                </div>
-                <div class="form-group">
-                    <label>Amount (₱)</label>
-                    <input type="number" id="transaction-amount" step="0.01" placeholder="0.00" required>
-                </div>
-                <div class="form-group">
-                    <label>Category</label>
-                    <select id="transaction-category">
-                        <option value="Food & Dining">Food & Dining</option>
-                        <option value="Transportation">Transportation</option>
-                        <option value="Shopping">Shopping</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Bills & Utilities">Bills & Utilities</option>
-                        <option value="Income">Income</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" onclick="hideModal('transaction-modal')">Cancel</button>
-                    <button type="submit">Add Transaction</button>
-                </div>
-            </form>
-        </div>
-    </div>
+   <footer class="site-footer">
+        <a href="about.html">About Us</a>
+    </footer>
 
-    <!-- Add Subscription Modal -->
-    <div id="subscription-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Add Subscription</h2>
-                <button class="close-btn" onclick="hideModal('subscription-modal')">&times;</button>
-            </div>
-            <form id="subscription-form">
-                <div class="form-group">
-                    <label>Service Name</label>
-                    <input type="text" id="subscription-name" placeholder="e.g., Netflix, Spotify" required>
-                </div>
-                <div class="form-group">
-                    <label>Monthly Amount (₱)</label>
-                    <input type="number" id="subscription-amount" step="0.01" placeholder="0.00" required>
-                </div>
-                <div class="form-group">
-                    <label>Category</label>
-                    <select id="subscription-category">
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Software">Software</option>
-                        <option value="Utilities">Utilities</option>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Next Renewal Date</label>
-                    <input type="date" id="subscription-renewal" required>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" onclick="hideModal('subscription-modal')">Cancel</button>
-                    <button type="submit">Add Subscription</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
