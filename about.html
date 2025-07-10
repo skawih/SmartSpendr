@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - SmartSpendr</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo-container">
+                <img src="smartspendrlogo.png" alt="SmartSpendr Logo" class="header-logo" onerror="this.style.display='none'">
+                <h2>SmartSpendr</h2>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="back-btn">Back to App</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="about-us-container">
+        <h1>Meet the Development Team</h1>
+        <p class="team-description">We are a passionate team of developers dedicated to creating intuitive and helpful financial tools. Get to know the minds behind SmartSpendr.</p>
+
+        <div class="team-grid">
+            <!-- Developer Card 1 -->
+            <div class="developer-card">
+                <div class="dev-picture-placeholder"></div>
+                <div class="dev-info">
+                    <h3>Name: Joaquin Santiago</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Email: 202411292@fit.edu.ph</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Role: Deployment & Programmer</h3>
+                    <p class="dev-detail-text"></p>
+                </div>
+            </div>
+
+            <!-- Developer Card 2 -->
+            <div class="developer-card">
+                <div class="dev-picture-placeholder"></div>
+                 <div class="dev-info">
+                    <h3>Name: Edrei Matthew Aguinaldo</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Email: 2024@fit.edu.ph</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Role: Programmer & UI/UX Designer</h3>
+                    <p class="dev-detail-text"></p>
+                </div>
+            </div>
+
+            <!-- Developer Card 3 -->
+            <div class="developer-card">
+                <div class="dev-picture-placeholder"></div>
+                 <div class="dev-info">
+                    <h3>Name: Patrick Miguel Louis</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Email: 202411198@fit.edu.ph</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Role: Documentation & Technical Writing</h3>
+                    <p class="dev-detail-text"></p>
+                </div>
+            </div>
+            
+             <!-- Developer Card 4 -->
+            <div class="developer-card">
+                <div class="dev-picture-placeholder"></div>
+                 <div class="dev-info">
+                    <h3>Name: Leon Miguel Mosqueda</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Email: 2024@fit.edu.ph</h3>
+                    <p class="dev-detail-text"></p>
+                    <h3>Role: Documentation & Technical Writing</h3>
+                    <p class="dev-detail-text"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Apply theme from localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+</body>
+</html>
