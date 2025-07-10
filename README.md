@@ -17,8 +17,12 @@ SmartSpendr is a web-based expense tracker designed to help users monitor their 
    - Displays total spending, recent transactions, and notifications.
    - Lists active subscriptions in a table format.
    - Highlights upcoming reminders with due dates.
-![Screenshot_2025-06-20_220926](https://github.com/user-attachments/assets/e2abf613-0395-46e0-851a-352ca8683a5a)
-![Screenshot_2025-06-20_221012](https://github.com/user-attachments/assets/d3f17de4-f71e-4e33-bd80-fcd80527089d)
+   - Light and Dark Mode
+<img width="1841" height="926" alt="Screenshot 2025-07-10 200420" src="https://github.com/user-attachments/assets/5e22f5ab-8b9e-41d1-9b8a-2df841425f0e" />
+<img width="1844" height="930" alt="image" src="https://github.com/user-attachments/assets/8a6edbcd-8e10-43f9-ab26-0b928691fd54" />
+<img width="1844" height="925" alt="image" src="https://github.com/user-attachments/assets/95d0d269-f0f4-490c-980e-bfb59c16069c" />
+<img width="1841" height="927" alt="image" src="https://github.com/user-attachments/assets/8a4c80de-d57f-49be-a617-e874f550f22d" />
+
 
 ## Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
