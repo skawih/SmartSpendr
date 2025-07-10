@@ -116,7 +116,7 @@ document.getElementById('transaction-form').addEventListener('submit', function(
     category: this.elements['transaction-category'].value,
     date: new Date().toISOString()
   };
-  transactions.unshift(transaction);
+  transactions.push(transaction);
   renderTransactions();
   updateOverviewCards();
   saveData();
@@ -134,7 +134,7 @@ document.getElementById('subscription-form').addEventListener('submit', function
     renewalDate: this.elements['subscription-renewal'].value,
     date: new Date().toISOString()
   };
-  subscriptions.unshift(subscription);
+  subscriptions.push(subscription);
   renderSubscriptions();
   updateOverviewCards();
   updateRenewalsList();
