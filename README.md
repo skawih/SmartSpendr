@@ -40,22 +40,33 @@ SmartSpendr is a web-based expense tracker designed to help users monitor their 
 
 ## Example Data Structure (Local Storage)
 ```json
-{
-  "user": {
-    "name": "Hi, Gelo Cruz",
-    "notifications": 2,
-    "reminders": 3
-  },
-  "spending": {
-    "lastMonth": "₱ 48,000",
-    "currentMonth": "₱ 8,000"
-  },
+"data-user@example.com": JSON.stringify({
+  "transactions": [
+    {
+      "id": "1678886400000",
+      "type": "expense",
+      "description": "Groceries",
+      "amount": 1500.50,
+      "category": "Food",
+      "date": "2023-03-15T12:00:00.000Z"
+    },
+    {
+      "id": "1678890000000",
+      "type": "income",
+      "description": "Freelance Project",
+      "amount": 25000.00,
+      "category": "Other",
+      "date": "2023-03-15T13:00:00.000Z"
+    }
+  ],
   "subscriptions": [
     {
-      "name": "Google Ads Services",
-      "status": "Active",
-      "renewalDate": "05 Jun 2025",
-      "amount": "₱ 1099"
+      "id": "1678900000000",
+      "name": "Netflix",
+      "amount": 549.00,
+      "category": "Streaming",
+      "renewalDate": "2023-04-01",
+      "date": "2023-03-15T14:00:00.000Z"
     }
   ]
-}
+}),
