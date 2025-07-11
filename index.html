@@ -84,7 +84,9 @@
   <!-- Settings and Forgot Password Modals -->
   <div id="settings-modal" class="modal">
     <div class="modal-content">
-        <div class="modal-header"><h2>Settings</h2><button class="close-btn" onclick="hideModal('settings-modal')">&times;</button></div>
+        <div class="modal-header">
+            <h2>Settings</h2><button class="close-btn" onclick="hideModal('settings-modal')">&times;</button>
+        </div>
         <div>
             <div class="settings-item">
                 <p>Theme</p>
@@ -97,9 +99,14 @@
                 <p>Account</p>
                 <button id="forgot-password-btn">Forgot Password</button>
             </div>
-        </div>
+            <div class="settings-item">
+                <p>Data</p>
+                <button id="export-csv-btn" class="btn-secondary">Export Transactions to CSV</button>
+            </div>
+            </div>
     </div>
-  </div>
+</div>
+  
   <div id="forgot-password-modal" class="modal">
     <div class="modal-content">
         <div class="modal-header"><h2>Reset Password</h2><button class="close-btn" onclick="hideModal('forgot-password-modal')">&times;</button></div>
@@ -118,3 +125,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
