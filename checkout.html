@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSpendr - Checkout</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; 
+        }
+        
+        .focus-cyan-500:focus {
+            --tw-ring-color: #06b6d4;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="text-gray-300">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Left Column: Payment Method Selection -->
+            <div class="lg:col-span-2 space-y-8">
+                <header>
+                    <h1 class="text-2xl font-bold text-white">Choose Payment Method</h1>
+                </header>
+
+                <!-- Online Payment Section -->
+                <section>
+                    <h2 class="text-sm font-semibold uppercase text-gray-400 mb-4">Online Payment</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="payment-options">
+                        <!-- Payment Option: QR Ph -->
+                        <div class="payment-option group relative cursor-pointer rounded-lg border-2 border-slate-700 bg-slate-800 p-4 transition-all hover:border-cyan-500" data-name="QR Ph" data-logo="https://placehold.co/100x40/1e293b/ffffff?text=QR+Ph&font=sans-serif">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-white">QR Ph</span>
+                                <img src="https://placehold.co/100x40/1e293b/ffffff?text=QR+Ph&font=sans-serif" alt="QR Ph Logo" class="h-8">
+                            </div>
+                            <div class="checkmark-container absolute top-3 right-3 hidden h-5 w-5 items-center justify-center rounded-full bg-cyan-500">
+                                <svg class="h-3.5 w-3.5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Payment Option: GCash -->
+                        <div class="payment-option group relative cursor-pointer rounded-lg border-2 border-slate-700 bg-slate-800 p-4 transition-all hover:border-cyan-500" data-name="GCash" data-logo="https://placehold.co/100x40/1e293b/2563eb?text=GCash&font=sans-serif">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-white">GCash</span>
+                                <img src="https://placehold.co/100x40/1e293b/2563eb?text=GCash&font=sans-serif" alt="GCash Logo" class="h-8">
+                            </div>
+                           <div class="checkmark-container absolute top-3 right-3 hidden h-5 w-5 items-center justify-center rounded-full bg-cyan-500">
+                                <svg class="h-3.5 w-3.5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Payment Option: Credit/Debit Card -->
+                        <div class="payment-option group relative cursor-pointer rounded-lg border-2 border-slate-700 bg-slate-800 p-4 transition-all hover:border-cyan-500" data-name="Credit / Debit Card" data-logo="https://placehold.co/100x40/1e293b/f59e0b?text=VISA+MC&font=sans-serif">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-white">Credit / Debit Card</span>
+                                <img src="https://placehold.co/100x40/1e293b/f59e0b?text=VISA+MC&font=sans-serif" alt="Card Logos" class="h-8">
+                            </div>
+                            <div class="checkmark-container absolute top-3 right-3 hidden h-5 w-5 items-center justify-center rounded-full bg-cyan-500">
+                                <svg class="h-3.5 w-3.5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Payment Option: PayPal -->
+                        <div class="payment-option group relative cursor-pointer rounded-lg border-2 border-slate-700 bg-slate-800 p-4 transition-all hover:border-cyan-500" data-name="PayPal" data-logo="https://placehold.co/100x40/1e293b/3b82f6?text=PayPal&font=sans-serif">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-white">PayPal</span>
+                                <img src="https://placehold.co/100x40/1e293b/3b82f6?text=PayPal&font=sans-serif" alt="PayPal Logo" class="h-8">
+                            </div>
+                            <div class="checkmark-container absolute top-3 right-3 hidden h-5 w-5 items-center justify-center rounded-full bg-cyan-500">
+                                <svg class="h-3.5 w-3.5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Online Banking Section -->
+                <section>
+                    <h2 class="text-sm font-semibold uppercase text-gray-400 mb-4">Online Banking</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                       <!-- This is a placeholder, you can add more options here -->
+                        <div class="payment-option group relative cursor-pointer rounded-lg border-2 border-slate-700 bg-slate-800 p-4 transition-all hover:border-cyan-500" data-name="BPI Online" data-logo="https://placehold.co/100x40/1e293b/ef4444?text=BPI&font=sans-serif">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-white">BPI Online Banking</span>
+                                <img src="https://placehold.co/100x40/1e293b/ef4444?text=BPI&font=sans-serif" alt="BPI Logo" class="h-8">
+                            </div>
+                            <div class="checkmark-container absolute top-3 right-3 hidden h-5 w-5 items-center justify-center rounded-full bg-cyan-500">
+                                <svg class="h-3.5 w-3.5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                         <div class="payment-option group relative cursor-pointer rounded-lg border-2 border-slate-700 bg-slate-800 p-4 transition-all hover:border-cyan-500" data-name="UnionBank Online" data-logo="https://placehold.co/100x40/1e293b/f97316?text=UBP&font=sans-serif">
+                            <div class="flex items-center justify-between">
+                                <span class="font-semibold text-white">UnionBank Online</span>
+                                <img src="https://placehold.co/100x40/1e293b/f97316?text=UBP&font=sans-serif" alt="UnionBank Logo" class="h-8">
+                            </div>
+                             <div class="checkmark-container absolute top-3 right-3 hidden h-5 w-5 items-center justify-center rounded-full bg-cyan-500">
+                                <svg class="h-3.5 w-3.5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Payment Information Summary -->
+            <aside class="lg:col-span-1">
+                <div class="sticky top-8 rounded-xl border border-slate-700 bg-slate-800 p-6">
+                    <div class="mb-6">
+                        <h3 class="text-sm font-semibold uppercase text-gray-400 mb-4">Payment From</h3>
+                        <div class="flex items-center justify-between">
+                           <h4 class="text-xl font-bold text-white">SmartSpendr</h4>
+                            <svg class="w-8 h-8 text-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 21Z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Payment Number</span>
+                            <span class="font-mono text-white">P69739987</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Created</span>
+                            <span class="font-mono text-white">2025-07-11 22:15:05</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Expiry</span>
+                            <span class="font-mono text-white">2025-07-12 02:15:05</span>
+                        </div>
+                         <div class="flex justify-between pt-2 border-t border-slate-700">
+                            <span class="text-gray-400">Total</span>
+                            <span class="font-semibold text-white">PHP 199</span>
+                        </div>
+                    </div>
+
+                    <div class="my-6 h-px bg-slate-700"></div>
+
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase text-gray-400 mb-4">Pay With</h3>
+                        <div class="flex items-center justify-between rounded-lg bg-slate-700/50 p-3">
+                            <span id="selected-payment-name" class="font-semibold text-white">Select a method</span>
+                            <img id="selected-payment-logo" src="https://placehold.co/100x40/1e293b/94a3b8?text=?&font=sans-serif" alt="Selected Payment Logo" class="h-8">
+                        </div>
+                    </div>
+                    
+                    <div class="my-6 h-px bg-slate-700"></div>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Service Fees</span>
+                            <span class="font-semibold text-white">PHP 2.98 <span class="text-gray-500">(≈1.50%)</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 space-y-4">
+                        <button id="pay-button" class="w-full rounded-lg bg-cyan-500 py-3.5 text-base font-bold text-white shadow-lg shadow-cyan-500/20 transition-all hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Pay Now <span class="font-normal">PHP</span> <span id="total-amount">201.98</span>
+                        </button>
+                        <a href="index.html" class="block w-full text-center rounded-lg bg-slate-700 py-3 text-base font-bold text-gray-300 transition-all hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:ring-offset-slate-800">
+                            Cancel
+                        </a>
+                    </div>
+
+
+                    <p class="mt-6 text-center text-xs text-gray-500">
+                        By proceeding, I acknowledge I have read and agreed to
+                        <a href="#" class="font-semibold text-cyan-400 hover:underline">Terms of sale</a>, 
+                        <a href="#" class="font-semibold text-cyan-400 hover:underline">Terms of service</a> & 
+                        <a href="#" class="font-semibold text-cyan-400 hover:underline">Privacy Policy</a>.
+                    </p>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            const selectedPaymentName = document.getElementById('selected-payment-name');
+            const selectedPaymentLogo = document.getElementById('selected-payment-logo');
+            const payButton = document.getElementById('pay-button');
+            let selectedOption = null;
+
+            // Function to update the UI based on selection
+            function selectPaymentOption(option) {
+                // Remove selection from all options
+                paymentOptions.forEach(opt => {
+                    opt.classList.remove('border-cyan-500');
+                    opt.classList.add('border-slate-700');
+                    opt.querySelector('.checkmark-container').classList.add('hidden');
+                });
+
+                // Apply selection to the clicked option
+                option.classList.add('border-cyan-500');
+                option.classList.remove('border-slate-700');
+                option.querySelector('.checkmark-container').classList.remove('hidden');
+
+                // Update the summary section
+                const name = option.dataset.name;
+                const logo = option.dataset.logo;
+                selectedPaymentName.textContent = name;
+                selectedPaymentLogo.src = logo;
+                selectedPaymentLogo.alt = `${name} Logo`;
+
+                // Enable the pay button
+                payButton.disabled = false;
+                
+                selectedOption = option;
+            }
+
+            // Add click listeners to all payment options
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    selectPaymentOption(option);
+                });
+            });
+
+            // Pre-select the first option for demonstration
+            if (paymentOptions.length > 0) {
+                selectPaymentOption(paymentOptions[0]);
+            } else {
+                 payButton.disabled = true;
+            }
+        });
+    </script>
+
+</body>
+</html>
