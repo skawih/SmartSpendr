@@ -3,6 +3,7 @@ let transactions = [];
 let subscriptions = [];
 let currentUser = null;
 
+
 const body = document.body;
 const themeToggleBtn = document.getElementById('theme-toggle-btn');
 const themeIcon = document.getElementById('theme-icon');
@@ -104,6 +105,98 @@ document.getElementById('forgot-password-form').addEventListener('submit', (e) =
     alert(`A password reset link has been sent to ${email} (demo).`);
     hideModal('forgot-password-modal');
 });
+
+// In script.js
+
+function exportTransactionsToCsv() {
+    if (transactions.length === 0) {
+        alert("No transactions to export.");
+        return;
+    }
+
+    // Define CSV Headers (ID column removed)
+    const headers = ['Date', 'Type', 'Description', 'Amount', 'Category'];
+
+    // Convert transaction objects to CSV rows
+    const csvRows = transactions.map(t => {
+        const dateObj = new Date(t.date);
+        
+        // Create a clean YYYY-MM-DD HH:MM:SS format
+        const year = dateObj.getFullYear();
+        const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const day = String(dateObj.getDate()).padStart(2, '0');
+        const hours = String(dateObj.getHours()).padStart(2, '0');
+        const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+        const seconds = String(dateObj.getSeconds()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+        // Escape commas in the description by wrapping the value in double quotes
+        const description = `"${t.description}"`;
+
+        // Return the array of values for the row (t.id removed)
+        return [formattedDate, t.type, description, t.amount, t.category].join(',');
+    });
+
+    // Combine headers and rows
+    const csvString = [headers.join(','), ...csvRows].join('\n');
+
+    // Create a Blob and trigger the download
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    if (link.download !== undefined) {
+        const url = URL.createObjectURL(blob);
+        const today = new Date().toISOString().split('T')[0];
+        link.setAttribute('href', url);
+        link.setAttribute('download', `SmartSpendr_Transactions_${today}.csv`);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+
+// In script.js
+
+// --- CSV Export ---
+function exportTransactionsToCsv() {
+    if (transactions.length === 0) {
+        alert("No transactions to export.");
+        return;
+    }
+
+    // Define CSV Headers
+    const headers = ['ID', 'Date', 'Type', 'Description', 'Amount', 'Category'];
+
+    // Convert transaction objects to CSV rows
+    const csvRows = transactions.map(t => {
+        const date = new Date(t.date).toLocaleString();
+        // Escape commas in the description by wrapping the value in double quotes
+        const description = `"${t.description}"`; 
+        return [t.id, date, t.type, description, t.amount, t.category].join(',');
+    });
+
+    // Combine headers and rows
+    const csvString = [headers.join(','), ...csvRows].join('\n');
+
+    // Create a Blob and trigger the download
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    if (link.download !== undefined) {
+        const url = URL.createObjectURL(blob);
+        const today = new Date().toISOString().split('T')[0];
+        link.setAttribute('href', url);
+        link.setAttribute('download', `SmartSpendr_Transactions_${today}.csv`);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+
+// --- Add Event Listener for the new button ---
+// This should be placed with your other event listeners
+
+document.getElementById('export-csv-btn').addEventListener('click', exportTransactionsToCsv);
 
 // --- Form Submissions (Transactions & Subscriptions) ---
 document.getElementById('transaction-form').addEventListener('submit', function(e) {
